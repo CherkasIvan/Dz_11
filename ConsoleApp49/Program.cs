@@ -43,8 +43,8 @@ namespace DZ11_Cherkas_Ivan
 		}
 
 		public override void Work() => Console.WriteLine($"Меня зовут {Name} {Surname}.Я студент факультета {Departament}");
-		
-		
+
+
 	}
 	public class Teacher : Person
 	{
@@ -76,15 +76,28 @@ namespace DZ11_Cherkas_Ivan
 		{
 			static void Main(string[] args)
 			{
-				Student student1 = new Student("Андрей", "Козлов", "менеджмента");
+				Student student1 = new Student("Андрей", "Козлов", "Информатики");
 				student1 = new Student("Ольга", "Васильева", "менеджмента");
-				Teacher teacher1 = new Teacher("Иван", "Рудный", "менеджмента");
+				Teacher teacher1 = new Teacher("Иван", "Рудный", "Информатики");
 				teacher1 = new Teacher("Олег", "Ерофеев", "менеджмента");
 				HeadOfDepartment headOfDepartment = new HeadOfDepartment("Андрей", "Козлов", "менеджмента");
 				var equals = headOfDepartment.Equals(student1);
 
+				Person[] person = new Person[5];
+				person[0] = student1;
+				person[1] = student1;
+				person[2] = teacher1;
+				person[3] = teacher1;
+				person[4] = headOfDepartment;
 
+				for (int i = 0; i < person.Length; i++)
+				{
+					person[i].Work();
+					Console.WriteLine();
+				}
+				
 			}
 		}
 	}
 }
+
